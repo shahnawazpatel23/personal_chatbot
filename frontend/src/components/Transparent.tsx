@@ -23,7 +23,7 @@ const Transparent = () => {
       setLoading(true)
       
       const res = await axios.post('https://personal-chatbot-server.vercel.app/chat',{question})
-      console.log('res from backend',res);
+      // console.log('res from backend',res);
       const data = res.data.response 
       if(!data) return <p> Error while retrieving data</p>
       // console.log('data from the backend is ',data)
