@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.16.0",
+    "axios": "^1.7.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "exppress": "^0.0.1-security",
+    "express": "^4.19.2"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "back",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
