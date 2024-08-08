@@ -5,14 +5,14 @@ import dotenv from 'dotenv'
 
 dotenv.config({
     path:'./.env'
-})
+}) // console.log('data from the backend is ',data)
 
 const app = express()
 const port = process.env.Port || 8000
 app.use(express.json())
 
 app.use(cors({
-    origin:'https://personal-chatbot-front.vercel.app/',
+    origin:'https://personal-chatbot-front.vercel.app',
     methods:['GET','POST'],
     credentials:true
 }))
