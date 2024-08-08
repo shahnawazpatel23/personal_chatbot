@@ -12,7 +12,7 @@ const port = process.env.Port || 8000
 app.use(express.json())
 
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'https://personal-chatbot-front.vercel.app/',
     methods:['GET','POST'],
     credentials:true
 }))
