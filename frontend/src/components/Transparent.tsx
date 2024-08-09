@@ -25,7 +25,7 @@ const Transparent = () => {
         setLoading(true);
         console.log('entered handleSubmit');
 
-        const res = await axios.post("http://localhost:8001/chat",{ question }  );
+        const res = await axios.post("https://personal-chatbot-server.vercel.app/chat",{ question }  );
 
         console.log('response is', res);
         const data = res.data.response;

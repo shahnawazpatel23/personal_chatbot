@@ -10,13 +10,9 @@ dotenv.config({
 const app = express()
 const port = process.env.Port || 8001
 
-// app.use(cors({
-//   origin:`http://localhost:5173/`,
-//   methods:['GET','POST'],
-//   credentials:true
-// }))
+
 app.use(cors({
-  origin:'http://localhost:5173',
+  origin:'https://personal-chatbot-front.vercel.app',
   methods:['GET','POST'],
   Credentials:true
 }
