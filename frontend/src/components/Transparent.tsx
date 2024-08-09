@@ -93,19 +93,7 @@ const Transparent = () => {
             </div>
           ) : (
             <div className="flex-grow overflow-y-auto mt-12">
-              <ReactMarkdown
-                components={{
-                  a: ({ node, ...props }) => (
-                    <a
-                      {...props}
-                      className="text-blue-500 underline "
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  ),
-                }}
-                className="text-left text-lg p-4"
-              >
+              <ReactMarkdown className="self-start whitespace-pre-wrap p-6 pt-8 text-left mt-20 lg:mt-12">
                 {response}
               </ReactMarkdown>
             </div>
