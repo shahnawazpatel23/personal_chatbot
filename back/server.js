@@ -5,17 +5,26 @@ import dotenv from 'dotenv'
 
 dotenv.config({
     path:'./.env'
-}) // console.log('data from the backend is ',data)
+}) 
 
 const app = express()
-const port = process.env.Port || 8000
+const port = process.env.Port || 8001
+
+// app.use(cors({
+//   origin:`http://localhost:5173/`,
+//   methods:['GET','POST'],
+//   credentials:true
+// }))
+app.use(cors({
+  origin:'http://localhost:5173',
+  methods:['GET','POST'],
+  Credentials:true
+}
+))
+
+
 app.use(express.json())
 
-app.use(cors({
-    origin:'https://personal-chatbot-front.vercel.app',
-    methods:['GET','POST'],
-    credentials:true
-}))
 
 const apiKey = process.env.GEMINI_API_KEY;
 console.log('apikey is',apiKey)
@@ -87,6 +96,7 @@ const generationConfig = {
 };
 
 async function run(question) {
+  console.log('inside run function')
   const chatSession = model.startChat({
     generationConfig,
  // safetySettings: Adjust safety settings
@@ -123,7 +133,7 @@ async function run(question) {
          const data = result.response.text();
          return data;
 }
-  
+
 
 app.get('/',(req,res)=>{
   res.send('hiee')

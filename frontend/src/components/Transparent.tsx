@@ -22,23 +22,27 @@ const Transparent = () => {
 
   const handleSubmit = async () => {
     try {
-      setLoading(true);
+        setLoading(true);
+        console.log('entered handleSubmit');
 
-      const res = await axios.post(
-        "https://personal-chatbot-server.vercel.app/chat",
-        { question }
-      );
+        const res = await axios.post("http://localhost:8001/chat",{ question }  );
 
-      const data = res.data.response;
-      if (!data) return <p> Error while retrieving data</p>;
+        console.log('response is', res);
+        const data = res.data.response;
+        if (!data) {
+            setResponse("Error while retrieving data");
+            return;
+        }
 
-      setResponse(data);
-      setLoading(false);
-      setQuestion("");
+        setResponse(data);
+        setLoading(false);
+        setQuestion("");
     } catch (error) {
-      console.log("error while handling", error);
+        console.log("error while handling", error);
+        setResponse("Error while handling request");
     }
-  };
+};
+
 
   return (
     <div className="absolute bg-transparent flex justify-center items-center ">
