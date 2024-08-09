@@ -98,12 +98,13 @@ const Transparent = () => {
                   a: ({ node, ...props }) => (
                     <a
                       {...props}
-                      className="text-blue-500 underline"
+                      className="text-blue-500 underline "
                       target="_blank"
                       rel="noopener noreferrer"
                     />
                   ),
                 }}
+                className="text-left text-lg p-4"
               >
                 {response}
               </ReactMarkdown>
