@@ -3,10 +3,12 @@ import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import Loader from "./Loader";
 
+
 const Transparent = () => {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState(
     " Hey I'm Shahnawaz's personal chat bot!!!"
+  
   );
   const [loading, setLoading] = useState(false);
 
@@ -41,9 +43,12 @@ const Transparent = () => {
   return (
     <div className="absolute bg-transparent flex justify-center items-center ">
       <div className="flex flex-col justify-center items-center text-center space-y-4 px-4">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-          Portfolio Pro
-        </h2>
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+    
+              <span >Portfolio Pro</span>
+          
+  </h2>
+    
 
         <div
           className="w-full  lg:w-[80vw] h-[70vh]  md:h-[70vh] lg:h-[70vh] p-4 sm:p-6 text-white flex flex-col justify-end overflow-y-auto relative"
@@ -93,7 +98,19 @@ const Transparent = () => {
             </div>
           ) : (
             <div className="flex-grow overflow-y-auto mt-12">
-              <ReactMarkdown className="self-start whitespace-pre-wrap p-6 pt-8 text-xl text-left mt-20 lg:mt-12">
+              <ReactMarkdown
+                components={{
+                  a: ({ node, ...props }) => (
+                    <a
+                      {...props}
+                      className="text-blue-500 underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  ),
+                }}
+                className="text-left p-4 pt-6 md:pt-4 mt-3 " 
+              >
                 {response}
               </ReactMarkdown>
             </div>
