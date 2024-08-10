@@ -3,6 +3,7 @@ import cors from 'cors'
 import {GoogleGenerativeAI} from '@google/generative-ai' 
 import dotenv from 'dotenv'
 
+
 dotenv.config({
     path:'./.env'
 }) 
@@ -14,7 +15,7 @@ const port = process.env.Port || 8001
 app.use(cors({
   origin:'https://personal-chatbot-front.vercel.app',
   methods:['GET','POST'],
-  Credentials:true
+  credentials:true
 }
 ))
 
@@ -141,10 +142,10 @@ app.post('/chat',async(req,res)=>{
         console.log('Question from the frontend:', question);
         const data = await run(question);
         console.log('Bot response is:', data);
-        if(data){
-
-            res.json({ response: data });
+        if(!data){
+          throw console.error("errror while fetching from gemini");
         }
+        res.json({ response: data });
       } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: 'Internal Server Error' });
